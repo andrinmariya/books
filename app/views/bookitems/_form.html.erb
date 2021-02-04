@@ -1,0 +1,32 @@
+<%= form_with(model: bookitem, local: true) do |form| %>
+  <% if bookitem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bookitem.errors.count, "error") %> prohibited this bookitem from being saved:</h2>
+
+      <ul>
+        <% bookitem.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :bookname %>
+    <%= form.text_field :bookname,class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price,class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author,class:"form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
